@@ -117,11 +117,14 @@ def home():
             <p class="text-lg md:text-xl mb-6">Your one-stop solution for crop yield prediction and smart recommendations.</p>
             
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <a href="/" class="px-4 py-3 bg-green-800 rounded-lg shadow hover:bg-green-900 transition">Home</a>
                 <a href="/docs" class="px-4 py-3 bg-green-800 rounded-lg shadow hover:bg-green-900 transition">Swagger Docs</a>
                 <a href="/redoc" class="px-4 py-3 bg-green-800 rounded-lg shadow hover:bg-green-900 transition">ReDoc Docs</a>
                 <a href="/health" class="px-4 py-3 bg-green-800 rounded-lg shadow hover:bg-green-900 transition">Health Check</a>
                 <a href="/metrics" class="px-4 py-3 bg-green-800 rounded-lg shadow hover:bg-green-900 transition">Metrics</a>
                 <a href="/errors" class="px-4 py-3 bg-green-800 rounded-lg shadow hover:bg-green-900 transition">Error Logs</a>
+                <a href="/predict_yield" class="px-4 py-3 bg-green-800 rounded-lg shadow hover:bg-green-900 transition">Predict Yield</a>
+                <a href="/recommend_crop" class="px-4 py-3 bg-green-800 rounded-lg shadow hover:bg-green-900 transition">Recommend Crop</a>
             </div>
         </div>
 

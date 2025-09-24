@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
-from pydantic import BaseModel, Field, Extra
+from pydantic import BaseModel, Field
 import joblib
 import pandas as pd
 import numpy as np
@@ -79,8 +79,6 @@ class YieldRequest(BaseModel):
     Fertilizer_kg_ha: float = Field(..., ge=0, description="Fertilizer applied in kg/ha")
     Pest_Index: float = Field(..., ge=0, description="Pest index")
     Irrigation_mm: float = Field(..., ge=0, description="Irrigation applied in mm")
-    class Config:
-        extra = Extra.allow
 
 class CropRequest(BaseModel):
     N: float = Field(..., ge=0, le=500, description="Nitrogen content in kg/ha")
@@ -88,10 +86,8 @@ class CropRequest(BaseModel):
     K: float = Field(..., ge=0, le=500, description="Potassium content in kg/ha")
     temperature: float = Field(..., ge=0, le=50, description="Temperature in °C")
     humidity: float = Field(..., ge=0, le=100, description="Humidity in %")
-    ph: float = Field(..., ge=3, le=5, description="Soil pH")
+    ph: float = Field(..., ge=3, le=10, description="Soil pH")
     rainfall: float = Field(..., ge=0, description="Rainfall in mm")
-    class Config:
-        extra = Extra.allow
 
 # Middleware to detect base URL dynamically
 @app.middleware("http")

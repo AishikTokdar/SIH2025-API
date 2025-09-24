@@ -221,13 +221,16 @@ def predict_yield(req: YieldRequest):
         Nutrient_Balance_Index = (data["N"] + data["P"] + data["K"]) / 3
         Stress_Index = data["temperature"] * (1 - data["humidity"] / 100)
         Rainfall_N_Interaction = data["rainfall"] * data["N"]
+        Temp_Humidity_Interaction = data["temperature"] * data["humidity"]
+        Fertilizer_Rainfall_Interaction = data["Fertilizer_kg_ha"] * data["rainfall"]
 
         input_array = [[
             data["N"], data["P"], data["K"],
             data["temperature"], data["humidity"], data["ph"],
             data["rainfall"], data["Soil_OC"], data["Fertilizer_kg_ha"],
             data["Pest_Index"], data["Irrigation_mm"],
-            Nutrient_Balance_Index, Stress_Index, Rainfall_N_Interaction
+            Nutrient_Balance_Index, Stress_Index, Rainfall_N_Interaction,
+            Temp_Humidity_Interaction, Fertilizer_Rainfall_Interaction
         ]]
 
         prediction = yield_model.predict(input_array)[0]
